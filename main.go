@@ -10,7 +10,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	if err := store.init(); err != nil {
+	if err := store.Init(); err != nil {
 		log.Fatal(err)
 	}
 
