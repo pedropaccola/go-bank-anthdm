@@ -1,12 +1,11 @@
 build:
 	@go build -o bin/gobank
 
-db:
+dbrun:
 	@docker run --name some-postgres -e POSTGRES_PASSWORD=gobank -p 5432:5432 -d postgres
 
 dbstop:
-	@docker stop some-postgres
-	@docker rm some-postgres
+	@docker stop some-postgres && docker rm some-postgres
 
 run: build
 	@./bin/gobank
