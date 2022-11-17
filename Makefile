@@ -2,7 +2,7 @@ build:
 	@go build -o bin/gobank
 
 db:
-	@docker run --name some-postgres -e POSTGRES_PASSWORD=webapp -p 5432:5432 -d postgres
+	@docker run --name some-postgres -e POSTGRES_PASSWORD=gobank -p 5432:5432 -d postgres
 
 dbstop:
 	@docker stop some-postgres
@@ -10,6 +10,7 @@ dbstop:
 
 run: build
 	@./bin/gobank
+	@export JWT_SECRET=testforthisfileenv
 
 test:
 	@go test -v ./...
